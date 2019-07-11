@@ -1,0 +1,13 @@
+{
+  "header": {
+    "lang": "en",
+    "lang_item": ["Русский","English"]
+  },
+  "err": {
+    "1": "Geolocation permission denied",
+    "2": "Position unavailable",
+    "3": "Geolocation time out",
+    "800": "Error 800",
+    "900": "Error 900"
+  }
+}

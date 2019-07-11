@@ -1,0 +1,32 @@
+:root {
+  --primary-default: #7C4DFF; /* var(--primary-default) */
+  --primary-hover: #571AFF;   /* var(--primary-hover) */
+  --primary-active: #4300FF; /* var(--primary-active) */
+
+  --secondary-default: #78909C; /* var(--secondary-default) */
+  --secondary-hover: #4E829C;   /* var(--secondary-hover) */
+  --secondary-active: #2F789C; /* var(--secondary-active) */
+
+  --white-base: #ffffff; /* var(--white-base) */
+
+  --blue-base: #367BF5; /* var(--blue-base) */
+  --yellow-base: #F3AA18; /* var(--yellow-base) */
+  --red-base: #EA3D2F; /* var(--yellow-base) */
+
+  --gray-10: #F7F9FA; /* var(--gray-10) */
+  --gray-20: #F1F3F4; /* var(--gray-20) */
+  --gray-30: #E3E5E6; /* var(--gray-30) */
+  --gray-40: #C6CACC; /* var(--gray-40) */
+  --gray-60: #919699; /* var(--gray-60) */
+  --gray-80: #5E6366; /* var(--gray-80) */
+  --gray-90: #3E4345; /* var(--gray-90) */
+
+  --shadow-dark-2dp: 0 1px 2px rgba(8, 35, 48, 0.08), 0px 2px 6px rgba(8, 35, 48, 0.08); /* var(--shadow-dark-2dp) */
+  --shadow-dark-4dp: 0 2px 4px rgba(8, 35, 48, 0.12); /* var(--shadow-dark-4dp) */
+  --shadow-dark-8dp: 0 4px 8px rgba(8, 35, 48, 0.1); /* var(--shadow-dark-8dp) */
+  --shadow-dark-12dp: 0 4px 10px rgba(8, 35, 48, 0.12); /* var(--shadow-dark-12dp) */
+  --shadow-dark-16dp: 0 6px 12px rgba(8, 35, 48, 0.04), 0px 16px 24px rgba(8, 35, 48, 0.06); /* var(--shadow-dark-16dp) */
+
+
+  --font-primary: Roboto, sans-serif; /* var(--font-primary) */
+}

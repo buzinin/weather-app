@@ -1,0 +1,8 @@
+$--color-primary: #03A9F4;
+$--font-path: '~element-ui/lib/theme-chalk/fonts';
+$--message-min-width: 300px !default;
+$--input-height: 46px !default;
+
+@import "~element-ui/packages/theme-chalk/src/index";
+/* icon font path, required */
+

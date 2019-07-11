@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,500&display=swap');
+@import "vars.css";
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  background: #f9f9f9;
+}
+
+.content:not(:last-child) {
+  margin-bottom: 0;
+}
+
+.content {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+.el-button.is-disabled {
+  border: 1px solid transparent!important;
+  opacity: 0.5;
+}
+
+.app-btn {
+  height: 40px;
+  padding: 0 16px;
+  margin-right: auto;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  color: #fff;
+  display: inline-block;
+  text-align: center;
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 40px;
+  cursor: pointer;
+  outline: none;
+  transition: background-color 0.2s ease-in-out;
+
+
+  &:hover,
+  &:focus,
+  &:active {
+    border: 1px solid transparent;
+    color: #fff;
+  }
+
+  &.el-button--default {
+    background: #1565C0;
+  }
+
+  &.el-button--default:hover,
+  &.el-button--default:active {
+    background: #0D47A1;
+    color: #fff;
+  }
+
+  &.el-button--text {
+
+  }
+  &.el-button--text:hover {
+    color: #f3f3f3;
+  }
+}
+
+.spinner {
+  height: 28px;
+  width: 28px;
+
+  & g {
+    transform-origin: 50% 50%;
+    animation: loading-rotate 2s linear infinite;
+  }
+
+  & .path {
+    animation: loading-dash 1.5s ease-in-out infinite;
+    stroke-dasharray: 90, 150;
+    stroke-dashoffset: 0;
+    stroke-width: 2;
+    stroke: var(--white-base);
+    stroke-linecap: round;
+  }
+}
