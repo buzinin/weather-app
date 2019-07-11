@@ -21,7 +21,7 @@ geocoder.interceptors.response.use((res) => {
 });
 
 const weather = axios.create({
-  baseURL: 'http://api.openweathermap.org/data/2.5',
+  baseURL: 'https://api.openweathermap.org/data/2.5',
   params: {
     APPID: '89c56f6b59002f9ebaa851d4f8bd08bd',
   }
