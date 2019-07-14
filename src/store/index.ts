@@ -11,6 +11,7 @@ Vue.use(Vuex);
 const store: StoreOptions<RootState> = {
   plugins: [createPersistedState()],
   state: {
+    lang: 'ru',
     cities: [],
     cityIndex: 0,
   },
@@ -45,6 +46,9 @@ const store: StoreOptions<RootState> = {
     },
     setWeather(state, value) {
       state.cities[state.cityIndex].weather = value;
+    },
+    setForecast(state, value) {
+      state.cities[state.cityIndex].forecast = value;
     }
   },
   actions: {
@@ -66,14 +70,28 @@ const store: StoreOptions<RootState> = {
 
 
     addCity({commit, dispatch, state}, city: City) {
+      const newCity = {...city};
+      console.log(state.cities.some(city => city.id === newCity.id));
+      if (state.cities.some(city => city.id === newCity.id)) return;
+
       return api.getWeather(city)
         .then(res => {
-          city.weather = res;
-
+          newCity.weather = res;
+          return api.getForecast(newCity);
+        })
+        .then(res => {
+          newCity.forecast = res.list;
           commit('setCityIndex', state.cities.length);
-          commit('addCity', city);
-        });
+          commit('addCity', newCity);
+        })
     },
+
+    removeCity({commit, state}, index) {
+      commit('removeCity', index);
+      const last = state.cities.length - 1;
+      if (index > last) index = last;
+      commit('setCityIndex', index);
+    }
   },
   modules: {
     weather,

@@ -1,10 +1,12 @@
 export interface  City {
   id: number,
   value: string,
+  fullName: string;
   label: string,
   lat: number,
   lon: number,
-  weather: any
+  weather: any,
+  forecast: any
 }
 
 export interface CityPosition {
@@ -14,6 +16,7 @@ export interface CityPosition {
 }
 
 export interface RootState {
+  lang: string;
   cityIndex: number;
   cities: City[]
 }

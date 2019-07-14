@@ -34,7 +34,7 @@ export function getPosition(): Promise<CityPosition> {
 export function checkLocation(location, query) {
   try{
     if (!location.type) return true;
-    return /^(city|town)$/.test(location.type);
+    return /^(city|town|village)$/.test(location.type);
   }catch (e) {
     return false;
   }
@@ -43,24 +43,29 @@ export function checkLocation(location, query) {
 export class City implements CityInterface {
   public id: number;
   public value: string;
+  public fullName: string;
   public label: string;
   public lat: number;
   public lon: number;
   public weather: any;
+  public forecast: any;
 
   constructor(location) {
     try{
-      const {place_id: id, lat, lon} = location;
+      const {place_id: id, lat, lon, display_name} = location;
       const {country, state, city} =  location.address;
       const normalizedCountry = (country === 'РФ') ? 'Россия' : country;
       const label = state + ', ' + normalizedCountry;
+      const fullName = display_name.split(',').slice(1).join(',').trim();
 
       this.id = id;
       this.value = city;
+      this.fullName = fullName;
       this.label = label;
       this.lat = lat;
       this.lon = lon;
       this.weather = null;
+      this.forecast = null;
     }catch (e) {
       return null;
     }

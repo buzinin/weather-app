@@ -8,8 +8,22 @@
   import {Component, Vue, Prop} from 'vue-property-decorator';
   import { State, Action, Getter, Mutation } from 'vuex-class';
   import CitySelect from '@/views/CityFind.vue';
+  import dayjs from 'dayjs';
+  import 'dayjs/locale/en';
+  import 'dayjs/locale/ru';
   import api from './api'
   import axios from 'axios';
+
+  // TODO в CityListItem добавить дропдаун (изменить, удалить и т.п.)
+  // TODO сделать анимированные иконки (дождь, снег)
+  // TODO фильтр списка городов
+  // TODO в ПК-версии большая кнопка добавить город
+  // TODO продумать как сделать подробный прогноз (отдельная страница, или просто блок)
+  // TODO добавить перевод едениц измерения (ветер, температура)
+  // TODO добавить настройки
+  // TODO добавить обновление погоды
+  // TODO добавить service worker (установка, пуш-уведомления в указанный интервал)
+  // TODO проверить обработку запрета на использование GPS в мобилках
 
   @Component({
     components: {
@@ -25,18 +39,6 @@
         console.log('focus')
       };
 
-
-
-      /*api.get('http://api.openweathermap.org/data/2.5/forecast', {
-        params: {
-          lat: 55.7504461,
-          lon: 37.6174943,
-          lang: 'ru',
-          cnt: 60,
-          units: 'metric',
-          APPID: '89c56f6b59002f9ebaa851d4f8bd08bd'
-        }
-      })*/
     }
 
   }

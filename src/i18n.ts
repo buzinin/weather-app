@@ -28,7 +28,7 @@ function getBrowserLang() {
 }
 
 export default new VueI18n({
-  locale: localStorage.getItem('sc-mobile_lang') || getBrowserLang() || 'ru',
+  locale: localStorage.getItem('app_lang') || getBrowserLang() || 'ru',
   fallbackLocale: 'en',
   messages: loadLocaleMessages(),
   silentTranslationWarn: true,

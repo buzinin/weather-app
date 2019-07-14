@@ -8,7 +8,7 @@
 body {
   margin: 0;
   font-family: 'Roboto', sans-serif;
-  background: #f9f9f9;
+  background: #cacaca;
 }
 
 .content:not(:last-child) {

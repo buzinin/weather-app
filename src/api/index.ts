@@ -65,10 +65,23 @@ const getWeather = function ({lat, lon}) {
     .then(res => res.data)
 };
 
+const getForecast = function ({lat, lon}) {
+  return weather.get('/forecast', {
+    params: {
+      lat: lat,
+      lon: lon,
+      lang: i18n.locale,
+      units: 'metric',
+    }
+  })
+    .then(res => res.data)
+};
+
 
 
 export default {
   getWeather,
+  getForecast,
   getCity,
   searchCity
 }

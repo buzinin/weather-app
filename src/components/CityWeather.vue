@@ -1,10 +1,15 @@
 <template lang="pug">
   .city
     .city-name {{city.value}}
+    .city-name__label {{city.label}}
     .city-weather
       .city-weather__state
-        .city-weather__icon(:style="{'background-image': `url(./img/weather-icon/${icon}.svg)`}")
+        .city-weather__icon
+          img(:src="`./img/weather-icon/${icon}.svg`")
+
         .city-weather__temp {{Math.round(weather.main.temp)}}°C
+        .city-weather__desc {{weather.weather[0].description}}
+
         .city-weather__info
           .city-weather__wind {{weather.wind.speed}} М/с
           .city-weather__humidity {{weather.main.humidity}}%
@@ -55,6 +60,15 @@
     text-align: center;
   }
 
+  .city-name__label {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.15;
+    color: #fff;
+    text-align: center;
+  }
+
+
   .city-weather {
     padding-top: 32px;
     color: #fff;
@@ -72,19 +86,32 @@
   }
 
   .city-weather__icon {
-    width: 70px;
-    height: 70px;
-    margin-right: 16px;
+    width: 100%;
+    height: 100px;
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
+    text-align: center;
+
+    img {
+      width: 100px;
+      height: 100%;
+    }
   }
 
   .city-weather__temp {
     display: inline-block;
-    font-size: 64px;
-    font-weight: 700;
+    font-size: 70px;
+    font-weight: 400;
     line-height: 1;
+    letter-spacing: -4px;
+  }
+
+  .city-weather__desc {
+    width: 100%;
+    font-size: 16px;
+    line-height: 1;
+    text-align: center;
   }
 
   .city-weather__info {

@@ -16,7 +16,7 @@
             ref="search")
               el-option(v-for="item in cities" :value="item" :label="item.value" :key="item.id")
                 .city-find__value {{item.value}}
-                .city-find__label {{item.label}}
+                .city-find__label {{item.fullName}}
 
             //el-button.app-btn( @click="submit" :disabled="!city" ) Готово
           .city-search__buttons(v-else)
@@ -29,7 +29,7 @@
   import { Component, Vue } from 'vue-property-decorator';
   import {State, Action, Getter, Mutation} from 'vuex-class';
   import Header from '../components/Header.vue';
-  import Main from '../components/Main.vue';
+  import Main from '../components/Weather.vue';
   import CitySearch from '../components/CitySearch.vue';
   import { debounce } from "@/utils";
   import {ElSelect} from "element-ui/types/select";
@@ -178,7 +178,10 @@
     }
 
     .el-select-dropdown__item {
+      height: auto;
+      padding: 5px 20px;
       display: flex;
+      white-space: pre-wrap;
       flex-direction: column;
       justify-content: center;
     }

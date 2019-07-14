@@ -5,13 +5,13 @@
       CityListItem(:city="currentCity")
     .city-list__title Все города
     .city-list__all
-      CityListItem(v-for="(city, index) in cities" :city="city" @click="setCityIndex(index)")
-
-
-
-
-
-
+      CityListItem(
+      :menu="true"
+      v-for="(city, index) in cities"
+      :city="city"
+      :key="city.id"
+      @remove="removeCity(index)"
+      @click="setCityIndex(index)")
 
 </template>
 
@@ -27,8 +27,8 @@
     @Getter currentCity;
     @Mutation setCityIndex;
     @State cities;
+    @Action removeCity;
     test: any[] = Array(15);
-
 
     private mounted(): void {
 

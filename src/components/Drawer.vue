@@ -13,7 +13,8 @@
 
     section.drawer-content
       .search-results(v-if="isSearch")
-        CityListItem(v-for="city in cities" :city="city" @click="select(city)")
+        .search-results__empty(v-if="!cities.length") Ничего не найдено
+        CityListItem(v-for="city in cities" :city="city" :key="city.id" @click="select(city)")
       .drawer-content(v-else)
         .drawer-tabs
           .drawer-tabs__item(
@@ -99,9 +100,9 @@
     }
 
     select(city) {
-      console.log(city);
       this.addCity(city)
-        .then(res => {
+        .then(() => {
+          this.city = '';
           this.closeSearch();
         })
     }
@@ -160,6 +161,7 @@
     justify-content: space-between;
   }
 
+
   .drawer-close,
   .drawer-back {
     width: 24px;
@@ -170,6 +172,7 @@
   }
 
   .drawer-search__input {
+    margin: 0 auto;
 
     input {
       background: transparent;
@@ -184,12 +187,19 @@
     input:focus {
       border-bottom: 1px solid #06a9f4;
     }
+
+
   }
 
   .drawer-search__icon {
     width: 24px;
     height: 24px;
+    margin-left: auto;
     font-size: 24px;
+  }
+
+  .drawer-search__input + .drawer-search__icon {
+    margin-left: 0;
   }
 
   .drawer-tabs {
@@ -220,6 +230,10 @@
     height: calc(100vh - 50px);
     padding: 16px;
     overflow-y: auto;
+  }
+
+  .search-results__empty {
+    text-align: center;
   }
 
   .drawer-content__scroll{
@@ -261,5 +275,9 @@
     &::-webkit-scrollbar-button {
       display: none
     }
+  }
+
+  @media screen and (max-width: 1366px) {
+
   }
 </style>
